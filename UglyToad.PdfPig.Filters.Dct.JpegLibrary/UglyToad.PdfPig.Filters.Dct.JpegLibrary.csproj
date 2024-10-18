@@ -26,9 +26,9 @@
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-		<PackageId>UglyToad.PdfPig.Filters.Dct.JpegLibrary</PackageId>
-		<Title>UglyToad.PdfPig.Filters.Dct.JpegLibrary</Title>
-		<Product>UglyToad.PdfPig.Filters.Dct.JpegLibrary</Product>
+		<PackageId>PdfPig.Filters.Dct.JpegLibrary</PackageId>
+		<Title>PdfPig.Filters.Dct.JpegLibrary</Title>
+		<Product>PdfPig.Filters.Dct.JpegLibrary</Product>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<PackageIcon>pdfpig.png</PackageIcon>
 	</PropertyGroup>
