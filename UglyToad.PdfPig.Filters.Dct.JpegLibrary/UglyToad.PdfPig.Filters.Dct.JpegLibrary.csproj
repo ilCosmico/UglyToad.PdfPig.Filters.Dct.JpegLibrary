@@ -1,0 +1,67 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;net462;net471;net6.0;net8.0</TargetFrameworks>
+		<LangVersion>12</LangVersion>
+		<Version>0.1.10.1-alpha001</Version>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<IsAotCompatible Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))">true</IsAotCompatible>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)'!='net8.0'">
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Authors>BobLd</Authors>
+		<PackageTags>PDF;Reader;Document;Adobe;PDFBox;PdfPig;pdf;file;C#;dotnet;.NET;image;jpg;jpeg;dct</PackageTags>
+		<RepositoryUrl>https://github.com/BobLd/UglyToad.PdfPig.Filters.Dct.JpegLibrary</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/BobLd/UglyToad.PdfPig.Filters.Dct.JpegLibrary</PackageProjectUrl>
+		<Description>PdfPig implementation of the DCT (Jpeg) filter, based on JpegLibrary.</Description>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+		<PackageId>UglyToad.PdfPig.Filters.Dct.JpegLibrary</PackageId>
+		<Title>UglyToad.PdfPig.Filters.Dct.JpegLibrary</Title>
+		<Product>UglyToad.PdfPig.Filters.Dct.JpegLibrary</Product>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<PackageIcon>pdfpig.png</PackageIcon>
+	</PropertyGroup>
+
+	<!-- Start From JpegLibrary -->
+	<PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'net462' OR '$(TargetFramework)' == 'net471'">
+		<DefineConstants>$(DefineConstants);NO_MATHF;NO_FAST_SPAN;NO_NULLABLE_REFERENCE;NO_READONLYSEQUENCE_FISTSPAN;NO_BIT_OPERATIONS;NO_MATH_CLAMP</DefineConstants>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+		<DefineConstants>$(DefineConstants);NO_SKIP_LOCALS_INIT</DefineConstants>
+	</PropertyGroup>
+
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'net462' OR '$(TargetFramework)' == 'net471'">
+		<PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
+		<PackageReference Include="System.Memory" Version="4.5.5" />
+	</ItemGroup>
+	<!-- End From JpegLibrary -->
+
+	<ItemGroup>
+		<None Include="..\documentation\pdfpig.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\README.md">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="PdfPig" Version="0.1.10-alpha-20241018-ea95a" />
+	</ItemGroup>
+
+</Project>
