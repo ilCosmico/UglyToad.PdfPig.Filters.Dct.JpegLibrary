@@ -8,7 +8,6 @@ namespace UglyToad.PdfPig.Filters.Dct.JpegLibrary
 
     /// <summary>
     /// DST (Discrete Cosine Transform) Filter indicates data is encoded in JPEG format.
-    /// <para>This filter is not implemented and will not be used during parsing.</para>
     /// </summary>
     public sealed class JpegLibraryDctDecodeFilter : IFilter
     {
