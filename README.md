@@ -69,9 +69,8 @@ using (var doc = PdfDocument.Open("test.pdf", parsingOption))
 		{
 			Assert.True(pdfImage.TryGetPng(out var bytes));
 
-			File.WriteAllBytes($"image_{i++}.jpeg", bytes);
+			File.WriteAllBytes($"image_{i++}.png", bytes);
 		}
 	}
 }
-
 ```
