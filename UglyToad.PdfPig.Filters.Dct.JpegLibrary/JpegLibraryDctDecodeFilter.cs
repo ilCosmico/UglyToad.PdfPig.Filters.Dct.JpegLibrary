@@ -15,7 +15,7 @@ namespace UglyToad.PdfPig.Filters.Dct.JpegLibrary
         public bool IsSupported => true;
 
         /// <inheritdoc />
-        public ReadOnlyMemory<byte> Decode(ReadOnlySpan<byte> input, DictionaryToken streamDictionary, int filterIndex)
+        public ReadOnlyMemory<byte> Decode(ReadOnlySpan<byte> input, DictionaryToken streamDictionary, IFilterProvider filterProvider, int filterIndex)
         {
             var decoder = new JpegDecoder();
 
@@ -119,7 +119,7 @@ namespace UglyToad.PdfPig.Filters.Dct.JpegLibrary
                         width);
                 }
             }
-
+            
             return ycbcr;
         }
     }

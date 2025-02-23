@@ -23,7 +23,7 @@ namespace UglyToad.PdfPig.Filters.Dct.JpegLibrary.Tests
                     {
                         Assert.True(pdfImage.TryGetPng(out var bytes));
 
-                        File.WriteAllBytes($"image_{i++}.jpeg", bytes);
+                        File.WriteAllBytes($"image_{i++}.png", bytes);
                     }
                 }
             }
@@ -56,7 +56,40 @@ namespace UglyToad.PdfPig.Filters.Dct.JpegLibrary.Tests
 
                         Assert.True(pdfImage.TryGetPng(out var bytes));
 
-                        File.WriteAllBytes($"image_{i++}.jpeg", bytes);
+                        File.WriteAllBytes($"image_{i++}.png", bytes);
+                    }
+                }
+            }
+        }
+
+        [Fact]
+        public void Test3()
+        {
+            var parsingOption = new ParsingOptions()
+            {
+                UseLenientParsing = true,
+                SkipMissingFonts = true,
+                FilterProvider = MyFilterProvider.Instance
+            };
+
+            using (var doc = PdfDocument.Open("new.pdf", parsingOption))
+            {
+                int i = 0;
+                foreach (var page in doc.GetPages())
+                {
+                    foreach (var pdfImage in page.GetImages())
+                    {
+                        if (pdfImage.ImageDictionary.TryGet(NameToken.Filter, out NameToken filter))
+                        {
+                            if (!filter.Data.ToUpper().Contains("DCT"))
+                            {
+                                continue;
+                            }
+                        }
+
+                        Assert.True(pdfImage.TryGetPng(out var bytes));
+
+                        File.WriteAllBytes($"new_{i++}.png", bytes);
                     }
                 }
             }
