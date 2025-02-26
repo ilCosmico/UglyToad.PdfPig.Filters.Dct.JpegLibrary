@@ -2,6 +2,10 @@
 
 PdfPig implementation of the DCT (Jpeg) filter, based on [JpegLibrary](https://github.com/yigolden/JpegLibrary) (MIT License - See [LICENCE](https://github.com/BobLd/UglyToad.PdfPig.Filters.Dct.JpegLibrary/blob/master/UglyToad.PdfPig.Filters.Dct.JpegLibrary/Jpeg/LICENSE) and [THIRD-PARTY-NOTICES](https://github.com/BobLd/UglyToad.PdfPig.Filters.Dct.JpegLibrary/blob/master/UglyToad.PdfPig.Filters.Dct.JpegLibrary/Jpeg/THIRD-PARTY-NOTICES.md))
 
+## Other filters
+- JPX filter available here: https://github.com/BobLd/UglyToad.PdfPig.Filters.Jpx.OpenJpegDotNet
+- JBIG2 filter available here: https://github.com/BobLd/UglyToad.PdfPig.Filters.Jbig2.PdfboxJbig2
+
 ## Usage
 ```csharp
 // Create your filter provider
